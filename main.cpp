@@ -40,13 +40,26 @@ int main() {
         retrieve the result of findWikiLadder(start_page, end_page)
         and append that vector to outputLadders.
     */
-    // Write code here
+    ifstream ifs(filename, std::ifstream::in);
+    int caseNum;
+    string startPage, endPage;
+    ifs >> caseNum;
+    for (int i = 0; i < caseNum; i++)
+    {
+        cin >> startPage >> endPage;
+        outputLadders.push_back(findWikiLadder(startPage, endPage));
+    }
 
     /*
      * Print out all ladders in outputLadders.
      * We've already implemented this for you!
      */
-    // Write code here
+    for (auto currLadder : outputLadders)
+    {
+        for (auto step : currLadder)
+        cout << step << ' ';
+        cout << endl;
+    }
 
     return 0;
 }
